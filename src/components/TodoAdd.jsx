@@ -1,7 +1,7 @@
 import { useForm } from "../helpers/useForm"
 
 
-export const TodoAdd = () => {
+export const TodoAdd = ({onNewTodo}) => {
 
     const {description, onIpuntChange, onResetForm} = useForm({
         description:'',
@@ -10,10 +10,20 @@ export const TodoAdd = () => {
     const onFormSubmit = (event) => {
         event.preventDefault();
         console.log(description);
+        if(description.length <= 1) return;
+
+        const newTodo = {
+            id: new Date().getTime(),
+            description: description,
+            done: false,
+        }
+
+        onNewTodo(newTodo),
+        onResetForm()
     }
 
     return (
-        <form className="onFormSubmit">
+        <form onSubmit={onFormSubmit}>
             <input type="text" 
             className="rounded"
             placeholder="Ingrese ToDo"
