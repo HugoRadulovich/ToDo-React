@@ -1,8 +1,17 @@
+import { TodoItem } from "./TodoItem"
 
-import React from 'react'
 
-export const TodoList = () => {
+export const TodoList = ({todos}) => {
     return (
-        <div>TodoList</div>
+        <ul>  
+            {
+                todos.map(todo =>
+                <TodoItem
+                    key= {todo.id}
+                    todo={todo}
+                />
+                )
+            }
+        </ul>
     )
 }
