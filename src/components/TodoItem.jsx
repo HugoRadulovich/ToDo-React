@@ -1,10 +1,11 @@
 
 
-export const TodoItem = ({todo}) => {
+export const TodoItem = ({todo, onDeleteTodo}) => {
     return (
-        <li>
+        <li key={todo.id}>
             {todo.description}
-            <button className="btn btn-danger m-2">Borrar</button>
+            <button onClick={() => onDeleteTodo(todo.id)} 
+                className="btn btn-danger m-2 ">Borrar</button>
         </li>
     )
 }
