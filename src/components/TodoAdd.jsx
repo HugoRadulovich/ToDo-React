@@ -25,7 +25,7 @@ export const TodoAdd = ({onNewTodo}) => {
     return (
         <form onSubmit={onFormSubmit}>
             <input type="text" 
-            className="rounded"
+            className="rounded a"
             placeholder="Ingrese ToDo"
             name = 'description'
             value={description}
